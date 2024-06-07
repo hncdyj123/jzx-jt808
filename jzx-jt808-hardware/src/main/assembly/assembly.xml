@@ -1,0 +1,42 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+	<id>assembly</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<!-- 使用assembly拷贝依赖包 -->
+	<!--<dependencySets> -->
+	<!--<dependencySet> -->
+	<!--<!– 是否包含自己（将项目生成的jar包也输出到lib目录） –> -->
+	<!--<useProjectArtifact>false</useProjectArtifact> -->
+	<!--<outputDirectory>lib</outputDirectory> -->
+	<!--</dependencySet> -->
+	<!--</dependencySets> -->
+	<fileSets>
+		<!-- 从目标目录拷贝文件去压缩 -->
+		<fileSet>
+			<directory>target</directory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>target/conf</directory>
+			<outputDirectory>/conf</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>target/lib</directory>
+			<outputDirectory>/lib</outputDirectory>
+		</fileSet>
+		<!-- 从源目录拷贝文件去压缩 -->
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>*.sh</include>
+				<include>*.cmd</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

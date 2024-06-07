@@ -1,0 +1,15 @@
+# 自定义业务配置相关
+business:
+  netty:
+    # netty启动监听端口
+    port: 3096
+  # 终端登录鉴权码
+  authCode: "123456"
+  # TCP通道保持时间 单位:秒
+  tcpKeepTime: 1200
+  # session保持时间 单位:秒 sessionKeepTime <= tcpKeepTime
+  sessionKeepTime: 1200
+
+spring:
+  profiles:
+    active: dev

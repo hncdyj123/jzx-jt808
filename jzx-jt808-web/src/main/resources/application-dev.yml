@@ -1,0 +1,87 @@
+spring:
+  datasource:
+    username: "root"
+    password: "root123"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.8.64:3306/jt808?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    type: com.alibaba.druid.pool.DruidDataSource
+    initial-size: 5
+    max-active: 20
+    min-idle: 5
+    max-wait: 60000
+    min-evictable-idle-time-millis: 300000
+    max-evictable-idle-time-millis: 300000
+    time-between-eviction-runs-millis: 60000
+    validation-query: select 1
+    validation-query-timeout: -1
+    test-on-borrow: false
+    test-on-return: false
+    test-while-idle: true
+    pool-prepared-statements: true
+    filters: stat,wall,log4j
+    share-prepared-statements: true
+
+  # redis 相关配置
+  redis:
+    primary:
+      # 连接地址
+      host: 192.168.8.64
+      # 连接端口
+      port: 6379
+      # 连接密码(生产环境必须开启,防止被攻击)
+      password: 'ccpmXZxI3TPth57'
+      # 连接超时时间
+      timeout: 2000
+      # 使用数据库
+      database: 2
+      # 连接池最大连接数（使用负值表示没有限制）
+      pool-max-active: 10
+      # 连接池中的最大空闲连接
+      pool-max-idle: 5
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      pool-max-wait: 2000
+      # 连接池中的最小空闲连接
+      pool-min-idle: 5
+    secondary:
+      # 连接地址
+      host: 192.168.8.64
+      # 连接端口
+      port: 6379
+      # 连接密码(生产环境必须开启,防止被攻击)
+      password: 'ccpmXZxI3TPth57'
+      # 连接超时时间
+      timeout: 2000
+      # 使用数据库
+      database: 2
+      # 连接池最大连接数（使用负值表示没有限制）
+      pool-max-active: 10
+      # 连接池中的最大空闲连接
+      pool-max-idle: 5
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      pool-max-wait: 2000
+      # 连接池中的最小空闲连接
+      pool-min-idle: 5
+
+  # rabbitmq config
+  rabbitmq:
+    business:
+      host: 192.168.8.64
+      password: "ccpmXZxI3TPth57"
+      port: 5672
+      username: root
+      virtual-host: /
+    logs:
+      host: 192.168.8.64
+      password: "ccpmXZxI3TPth57"
+      port: 5672
+      username: root
+      virtual-host: /
+
+  # mongodb多数据源配置
+  mongodb:
+    primary:
+      uri: mongodb://192.168.8.64:5000/Business
+      database: Business
+    secondary:
+      uri: mongodb://192.168.8.64:5000/Logs
+      database: Logs

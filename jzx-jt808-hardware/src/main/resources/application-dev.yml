@@ -1,0 +1,72 @@
+# 自定义业务配置相关
+business:
+  # 当前接入部署的外网地址
+  localOuterIp: ""
+  # 别名,用于登录写入设备在哪个接入上
+  hostName: ""
+
+spring:
+  # redis 相关配置
+  redis:
+    primary:
+      # 连接地址
+      host: 192.168.8.64
+      # 连接端口
+      port: 6379
+      # 连接密码(生产环境必须开启,防止被攻击)
+      password: 'ccpmXZxI3TPth57'
+      # 连接超时时间
+      timeout: 2000
+      # 使用数据库
+      database: 2
+      # 连接池最大连接数（使用负值表示没有限制）
+      pool-max-active: 10
+      # 连接池中的最大空闲连接
+      pool-max-idle: 5
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      pool-max-wait: 2000
+      # 连接池中的最小空闲连接
+      pool-min-idle: 5
+    secondary:
+      # 连接地址
+      host: 192.168.8.64
+      # 连接端口
+      port: 6379
+      # 连接密码(生产环境必须开启,防止被攻击)
+      password: 'ccpmXZxI3TPth57'
+      # 连接超时时间
+      timeout: 2000
+      # 使用数据库
+      database: 2
+      # 连接池最大连接数（使用负值表示没有限制）
+      pool-max-active: 10
+      # 连接池中的最大空闲连接
+      pool-max-idle: 5
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      pool-max-wait: 2000
+      # 连接池中的最小空闲连接
+      pool-min-idle: 5
+
+  # rabbitmq config
+  rabbitmq:
+    business:
+      host: 192.168.8.64
+      password: 'ccpmXZxI3TPth57'
+      port: 5672
+      username: root
+      virtual-host: /
+    logs:
+      host: 192.168.8.64
+      password: 'ccpmXZxI3TPth57'
+      port: 5672
+      username: root
+      virtual-host: /
+
+  # mongodb多数据源配置
+  mongodb:
+    primary:
+      uri: mongodb://192.168.8.64:5000/Business
+      database: Business
+    secondary:
+      uri: mongodb://192.168.8.64:5000/Logs
+      database: Logs
